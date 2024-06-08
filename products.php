@@ -24,6 +24,7 @@ $result = $conn->query($sql);
         <a href="add_product.php">
             <button type="button" class="btn btn-success">Add Products</button>
         </a>
+        <?php if ($result->num_rows > 0) { ?>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -34,36 +35,36 @@ $result = $conn->query($sql);
             </thead>
             <tbody>
                 <?php
-                    if ($result->num_rows > 0) { 
-                        while ($row = $result->fetch_assoc()) { ?>
-                    <tr>
-                        <td><?php echo $row["name"] ?></td>
-                        <td><?php echo $row["price"] ?></td>
-                        <td>
-                            <a href='edit_product.php?id=<?php echo $row["id"] ?>&type=1'>
-                                <button type="button" class="btn btn-primary">View</button>
-                            </a>
-                            <a href='edit_product.php?id=<?php echo $row["id"] ?>&type=2'>
-                                <button type="button" class="btn btn-warning">Edit</button>
-                            </a>
-
-                            <form id='deleteForm<?php echo $row["id"] ?>' method='post' action='delete_product.php' style='display:inline;'>
-                                <input type='hidden' name='id' value='<?php echo $row["id"] ?>'>
-                                <a href='#' onclick='confirmDelete(<?php echo $row["id"] ?>)'>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                    while ($row = $result->fetch_assoc()) { ?>
+                        <tr>
+                            <td><?php echo $row["name"] ?></td>
+                            <td><?php echo $row["price"] ?></td>
+                            <td>
+                                <a href='edit_product.php?id=<?php echo $row["id"] ?>&type=1'>
+                                    <button type="button" class="btn btn-primary">View</button>
                                 </a>
-                            </form>
+                                <a href='edit_product.php?id=<?php echo $row["id"] ?>&type=2'>
+                                    <button type="button" class="btn btn-warning">Edit</button>
+                                </a>
+                                <form id='deleteForm<?php echo $row["id"] ?>' method='post' action='delete_product.php' style='display:inline;'>
+                                    <input type='hidden' name='id' value='<?php echo $row["id"] ?>'>
+                                    <a href='#' onclick='confirmDelete(<?php echo $row["id"] ?>)'>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </a>
+                                </form>
 
-                        </td>
-                    </tr>
-                <?php
-                        }
-                    } else {
-                        echo "No products available.";
+                            </td>
+                        </tr>
+                        <?php
                     }
                 ?>
             </tbody>
         </table>
+        <?php
+            } else {
+                echo "<br><br>No products available.";
+            }
+        ?>
     </div>
 </body>
 </html>
