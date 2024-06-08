@@ -61,14 +61,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title><?php echo $headerName ?> Product</title>
 </head>
 <body>
-    <h2><?php echo $headerName ?> Product</h2>
-    <form method="post">
-        <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-        Name: <input type="text" name="name" value="<?php echo $row['name']; ?>" required <?php echo $readonly ?>><br> <br>
-        Price: <input type="number" step="0.01" name="price" value="<?php echo $row['price']; ?>" required <?php echo $readonly ?>><br> <br>
-        <?php if ($type == 2) { ?>
-            <input type="submit" value="Update Product">
-        <?php } ?>
-    </form>
+    <div class="page_header">
+        <h2><?php echo $headerName ?> Product</h2>
+        <form method="post">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+            Name: <input type="text" name="name" value="<?php echo $row['name']; ?>" required <?php echo $readonly ?>><br> <br>
+            Price: <input type="number" step="0.01" name="price" value="<?php echo $row['price']; ?>" required <?php echo $readonly ?>><br> <br>
+            <?php if ($type == 2) { ?>
+                <input type="submit" value="Update Product">
+            <?php } ?>
+        </form>
+    </div>
 </body>
 </html>

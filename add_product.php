@@ -44,11 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Add Product</title>
 </head>
 <body>
-    <h2>Add Product</h2>
-    <form method="post">
-        Name: <input type="text" name="name" required><br> <br>
-        Price: <input type="number" step="0.01" name="price" required><br> <br>
-        <input type="submit" value="Add Product">
-    </form>
+    <div class="page_header">
+        <h2>Add Product</h2>
+        <form method="post">
+            Name: <input type="text" name="name" required><br> <br>
+            Price: <input type="number" step="0.01" name="price" required><br> <br>
+            <input type="submit" class="btn btn-success" value="Add Product">
+        </form>
+    </div>
 </body>
 </html>

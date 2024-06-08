@@ -37,18 +37,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Register</title>
 </head>
 <body>
-    <h2>Register</h2>
-    <form method="post">
-        Username: <input type="text" name="username" required><br><br>
-        Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" required><br><br>
-        Password: <input type="password" name="password" required><br><br>
-        <input type="submit" value="Register">
-    </form>
-    <div>
-        Login ? 
-        <a href="login.php">
-            <button type="button" class="btn btn-success">Login</button>
-        </a>
+    <div class="page_header">
+        <h2>Register</h2>
+        <form method="post">
+            Username: <input type="text" name="username" required><br><br>
+            Email: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="email" name="email" required><br><br>
+            Password: <input type="password" name="password" required><br><br>
+            <input type="submit" value="Register">
+        </form>
+        <div>
+            Login ? 
+            <a href="login.php">
+                <button type="button" class="btn btn-success">Login</button>
+            </a>
+        </div>
     </div>
 </body>
 </html>
